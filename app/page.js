@@ -9,7 +9,8 @@ import { useState } from "react";
 export default function Home() {
   const { setTheme, theme } = useTheme();
 
-  const [input, setInput] = useState(`
+  const [input, setInput] = useState(
+    `
 # Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
@@ -52,7 +53,8 @@ And here. | Okay. | I think we get it.
 1. And last but not least, let's not forget embedded images:
 
 ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)
-`);
+`
+  );
   marked.setOptions({ breaks: true });
   return (
     <div className="">
