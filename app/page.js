@@ -1,5 +1,4 @@
 "use client";
-import DOMPurify from "dompurify";
 import { Moon } from "lucide-react";
 import { Sun } from "lucide-react";
 import { marked } from "marked";
@@ -55,7 +54,7 @@ And here. | Okay. | I think we get it.
 ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)
 `
   );
-  marked.setOptions({ breaks: true });
+  marked.setOptions({ breaks: true, mangle: false, headerIds: false });
   return (
     <div className="">
       <div className="w-full h-[50px] flex flex-row items-center justify-end bg-gray-300 dark:bg-gray-800">
@@ -94,7 +93,8 @@ And here. | Okay. | I think we get it.
             className="w-full h-full "
             id="preview"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(marked(input)),
+              // __html: DOMPurify.sanitize(marked(input)),
+              __html: marked(input),
             }}
           ></div>
         </div>
